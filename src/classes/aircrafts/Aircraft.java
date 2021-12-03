@@ -16,5 +16,8 @@ abstract public class       Aircraft {
         return idCounter++;
     }
 
+    public String           getNameId() {
+        return (name + '(' + id + ')');
+    }
 
 }

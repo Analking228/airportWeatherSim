@@ -12,13 +12,17 @@ abstract public class                   Tower {
     }
 
     public void                register(Flyable flyable) {
-        observers.add(flyable);
-        System.out.println("Tower says: registered to weather tower.");
+        if (!observers.contains(flyable)) {
+            observers.add(flyable);
+            System.out.println("Tower says: " + flyable.getNameId() + " registered to weather tower.");
+        }
     }
 
     public void                unregister(Flyable flyable) {
-        observers.remove(flyable);
-        System.out.println("Tower says: unregistered from weather tower.");
+        if (observers.contains(flyable)) {
+            observers.remove(flyable);
+            System.out.println("Tower says: " + flyable.getNameId() + " unregistered from weather tower.");
+        }
     }
 
     protected void                      conditionsChanged() {
