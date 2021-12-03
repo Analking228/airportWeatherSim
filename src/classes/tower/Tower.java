@@ -11,9 +11,15 @@ abstract public class                   Tower {
         observers = new ArrayList<>();
     }
 
-    abstract public void                register(Flyable flyable);
+    public void                register(Flyable flyable) {
+        observers.add(flyable);
+        System.out.println("Tower says: registered to weather tower.");
+    }
 
-    abstract public void                unregister(Flyable flyable);
+    public void                unregister(Flyable flyable) {
+        observers.remove(flyable);
+        System.out.println("Tower says: unregistered from weather tower.");
+    }
 
     protected void                      conditionsChanged() {
         //some code
