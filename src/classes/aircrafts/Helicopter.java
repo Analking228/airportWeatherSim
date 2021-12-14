@@ -12,10 +12,38 @@ public class            Helicopter extends Aircraft implements Flyable{
     @Override
     public void registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
+        this.weatherTower.register(this);
     }
 
     @Override
     public void updateConditions() {
-        weatherTower.getWeather(this.coordinates);
+
+        String weather = this.weatherTower.getWeather(this.coordinates);
+        switch (weather) {
+            case "SUN":
+                this.coordinates = new Coordinates(
+                        this.coordinates.getLongitude(),
+                        this.coordinates.getLatitude() + 10,
+                        this.coordinates.getHeight() + 2);
+                break;
+            case "RAIN":
+                this.coordinates = new Coordinates(
+                        this.coordinates.getLongitude(),
+                        this.coordinates.getLatitude() + 5,
+                        this.coordinates.getHeight());
+                break;
+            case "FOG":
+                this.coordinates = new Coordinates(
+                        this.coordinates.getLongitude(),
+                        this.coordinates.getLatitude() + 1,
+                        this.coordinates.getHeight());
+                break;
+            case "SNOW":
+                this.coordinates = new Coordinates(
+                        this.coordinates.getLongitude(),
+                        this.coordinates.getLatitude(),
+                        this.coordinates.getHeight() - 7);
+                break;
+        }
     }
 }

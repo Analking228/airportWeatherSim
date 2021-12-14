@@ -2,9 +2,11 @@ package classes.weather;
 
 import classes.aircrafts.Coordinates;
 
+import java.util.Random;
+
 public class                        WeatherProvider {
     private static WeatherProvider  WeatherProvider;
-    private String                  weather;
+    static private final String[]   weather = {"SUN", "RAIN", "SNOW", "FOG"};
 
     private                         WeatherProvider() {}
     public static WeatherProvider   getProvider() {
@@ -14,6 +16,9 @@ public class                        WeatherProvider {
     }
 
     public String                   getCurrentWeather(Coordinates coordinates) {
-        //some code
+        int seed = (coordinates.getLongitude() + coordinates.getLatitude()) / coordinates.getHeight();
+        seed += new Random().nextInt(100);
+
+        return (weather[seed % 4]);
     }
 }

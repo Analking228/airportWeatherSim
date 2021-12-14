@@ -26,6 +26,8 @@ abstract public class                   Tower {
     }
 
     protected void                      conditionsChanged() {
-        //some code
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).updateConditions();
+        }
     }
 }
