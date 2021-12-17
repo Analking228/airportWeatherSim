@@ -42,7 +42,7 @@ public class            Helicopter extends Aircraft implements Flyable{
                 this.coordinates = new Coordinates(
                         this.coordinates.getLongitude(),
                         this.coordinates.getLatitude(),
-                        this.coordinates.getHeight() - 7);
+                        this.coordinates.getHeight() - 12);
                 break;
         }
     }
