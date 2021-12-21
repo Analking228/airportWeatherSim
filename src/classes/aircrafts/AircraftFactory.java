@@ -17,6 +17,6 @@ public class AircraftFactory {
         else if (type.toLowerCase().equals("baloon")) {
             return new Baloon(name, coords);
         }
-        else throw new SimException("ERROR: Type unknown : \'" + type + "\'");
+        else throw new SimException("ERROR: Type unknown : " + type);
     }
 }
