@@ -19,5 +19,4 @@ abstract public class       Aircraft {
     public String           getNameId() {
         return (name + '(' + id + ')');
     }
-
 }

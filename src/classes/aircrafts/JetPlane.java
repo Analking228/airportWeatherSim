@@ -1,5 +1,6 @@
 package classes.aircrafts;
 
+import classes.Logger.Logger;
 import classes.tower.WeatherTower;
 
 import java.util.HashMap;
@@ -52,6 +53,16 @@ public class                JetPlane extends Aircraft implements Flyable{
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() - 7);
                 break;
+        }
+        Logger.addLine(this.getNameId() + ": " + reports.get(weather));
+
+        if (this.coordinates.getHeight() <= 0) {
+            Logger.addLine(this.getNameId() + ": Landing ["
+                    + this.coordinates.getLongitude()
+                    + ","
+                    + this.coordinates.getLatitude()
+                    + "]");
+            this.weatherTower.unregister(this);
         }
     }
 }

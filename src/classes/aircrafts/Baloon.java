@@ -1,21 +1,31 @@
 package classes.aircrafts;
 
+import classes.Logger.Logger;
 import classes.tower.WeatherTower;
+import com.oracle.tools.packager.Log;
 
-public class            Baloon extends Aircraft implements Flyable{
-    WeatherTower        weatherTower;
+import java.util.HashMap;
+
+public class                Baloon extends Aircraft implements Flyable{
+    WeatherTower            weatherTower;
+    HashMap<String, String> reports;
 
     protected Baloon(String name, Coordinates coordinates) {
         super(name, coordinates);
+        reports = new HashMap<>();
+        reports.put("SNOW", "Where banana?");
+        reports.put("RAIN", "Chupapi-Munyanya!");
+        reports.put("FOG", "I am under the water.");
+        reports.put("SUN", "Please help me.");
     }
 
     @Override
-    public void registerTower(WeatherTower weatherTower) {
+    public void             registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
     }
 
     @Override
-    public void updateConditions() {
+    public void             updateConditions() {
 
         String weather = this.weatherTower.getWeather(this.coordinates);
         switch (weather) {
@@ -43,6 +53,16 @@ public class            Baloon extends Aircraft implements Flyable{
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() - 12);
                 break;
+        }
+        Logger.addLine(this.getNameId() + ": " + reports.get(weather));
+
+        if (this.coordinates.getHeight() <= 0){
+            Logger.addLine(this.getNameId() + ": Landing ["
+                    + this.coordinates.getLongitude()
+                    + ','
+                    + this.coordinates.getLatitude()
+                    + "]");
+            this.weatherTower.unregister(this);
         }
     }
 }
