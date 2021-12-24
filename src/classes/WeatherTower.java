@@ -1,7 +1,6 @@
-package classes.tower;
+package classes;
 
 import classes.aircrafts.Coordinates;
-import classes.weather.WeatherProvider;
 
 public class WeatherTower extends Tower {
 

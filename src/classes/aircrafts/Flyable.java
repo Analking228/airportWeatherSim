@@ -1,7 +1,6 @@
 package classes.aircrafts;
 
-import classes.tower.Tower;
-import classes.tower.WeatherTower;
+import classes.WeatherTower;
 
 public interface    Flyable {
 

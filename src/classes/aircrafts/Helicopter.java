@@ -1,7 +1,7 @@
 package classes.aircrafts;
 
-import classes.Logger.Logger;
-import classes.tower.WeatherTower;
+import classes.Logger;
+import classes.WeatherTower;
 import java.util.HashMap;
 
 public class            Helicopter extends Aircraft implements Flyable{

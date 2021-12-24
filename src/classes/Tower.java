@@ -1,4 +1,4 @@
-package classes.tower;
+package classes;
 
 import classes.aircrafts.Flyable;
 

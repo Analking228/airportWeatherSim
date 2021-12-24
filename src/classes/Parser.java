@@ -1,9 +1,7 @@
-package classes.Parser;
+package classes;
 
-import classes.Exception.SimException;
 import classes.aircrafts.AircraftFactory;
 import classes.aircrafts.Flyable;
-import classes.tower.WeatherTower;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,8 +10,8 @@ import java.util.ArrayList;
 
 public class Parser {
 
-    private int                 SimNumber;
-    private ArrayList<Flyable>  flyables = new ArrayList<>();
+    private int                 SimCount;
+    private ArrayList<Flyable>  flyable = new ArrayList<>();
 
     public void parseScenario(String filePath) throws SimException, IOException {
 
@@ -26,11 +24,11 @@ public class Parser {
             throw new SimException("ERROR: Empty simulation file.");
         if (ln.length() > 0) {
             try {
-                SimNumber = Integer.parseInt(ln.trim());
-                if (SimNumber <= 0)
+                SimCount = Integer.parseInt(ln.trim());
+                if (SimCount <= 0)
                     throw new SimException("");
             } catch (NumberFormatException e) {
-                throw new SimException("ERROR: Wrong simulations number"
+                throw new SimException("ERROR: Wrong simulations count"
                         + " or line provided");
             }
         }
@@ -55,7 +53,7 @@ public class Parser {
                                 "\nCoordinates must be POSITIVE INTEGERS!");
                 }
 
-                flyables.add(AircraftFactory.newAircraft(split[0], split[1], coords[0], coords[1], coords[2]));
+                flyable.add(AircraftFactory.newAircraft(split[0], split[1], coords[0], coords[1], coords[2]));
 
             } catch (NumberFormatException e) {
                 throw new SimException("ERROR: Invalid line #" + lnCount + " in a scenario file." +
@@ -64,4 +62,7 @@ public class Parser {
         }
         reader.close();
     }
+
+    int             getSimCount() { return SimCount; }
+    ArrayList<Flyable>  getFlyables() { return flyable; }
 }

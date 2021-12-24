@@ -1,4 +1,4 @@
-package classes.weather;
+package classes;
 
 import classes.aircrafts.Coordinates;
 

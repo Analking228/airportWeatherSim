@@ -1,8 +1,7 @@
 package classes.aircrafts;
 
-import classes.Logger.Logger;
-import classes.tower.WeatherTower;
-import com.oracle.tools.packager.Log;
+import classes.Logger;
+import classes.WeatherTower;
 
 import java.util.HashMap;
 

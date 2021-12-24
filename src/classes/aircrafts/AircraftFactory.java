@@ -1,6 +1,6 @@
 package classes.aircrafts;
 
-import classes.Exception.SimException;
+import classes.SimException;
 
 public class AircraftFactory {
 

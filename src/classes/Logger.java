@@ -1,4 +1,4 @@
-package classes.Logger;
+package classes;
 
 import java.io.*;
 
