@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Simulator {
 
-    private WeatherTower        tower;
+    private WeatherTower        tower = new WeatherTower();
     private Logger              logger = new Logger();
     private int                 simCount;
     private final int           simTotal;

@@ -9,13 +9,13 @@ public class AircraftFactory {
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
         if (type.toLowerCase().equals("helicopter")) {
-            return new Helicopter(name, coordinates);
+            return new Helicopter(type + '#' + name, coordinates);
         }
         else if (type.toLowerCase().equals("jetplane")) {
-            return new JetPlane(name, coordinates);
+            return new JetPlane(type + '#' + name, coordinates);
         }
         else if (type.toLowerCase().equals("baloon")) {
-            return new Baloon(name, coordinates);
+            return new Baloon(type + '#' + name, coordinates);
         }
         else throw new SimException("ERROR: Type unknown : " + type);
     }
