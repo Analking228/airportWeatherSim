@@ -1,2 +1,8 @@
 # airportWeatherSim
 First projet of the Java projects arc. Implementation of a simple Java program according to a given class diagram written in UML.
+
+#how to run
+
+find . -name "*.java" > sources.txt \
+javac -sourcepath . @sources.txt \
+java classes.Simulator scenario.txt
