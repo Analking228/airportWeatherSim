@@ -7,32 +7,32 @@ import java.util.ArrayList;
 
 public class Simulator {
 
-    private WeatherTower        tower = new WeatherTower();
-    private Logger              logger = new Logger();
+    private final WeatherTower  tower = new WeatherTower();
+    private final Logger        logger = new Logger();
     private int                 simCount;
     private final int           simTotal;
     private ArrayList<Flyable>  flyable = new ArrayList<>();
 
-    public Simulator(ArrayList<Flyable>  flyable, int simTotal) {
+    public                      Simulator(ArrayList<Flyable>  flyable, int simTotal) {
         this.flyable = flyable;
         this.simTotal = simTotal;
         this.simCount = 0;
     }
 
-    void runSimulator(Simulator simulator) {
+    void                        runSimulator(Simulator simulator) {
 
         for (Flyable a : simulator.flyable) {
             a.registerTower(simulator.tower);
         }
 
         while (simulator.simCount < simulator.simTotal) {
-            Logger.addLine("\t== Simulation #" + (simulator.simCount + 1) + " ==");
+            Logger.addLine("\t\t*** Simulation #" + (simulator.simCount + 1) + " ***");
             simulator.tower.changeWeather();
             simulator.simCount++;
         }
     }
 
-    public static void main (String[]args) {
+    public static void          main (String[]args) {
 
         try {
 
@@ -40,7 +40,7 @@ public class Simulator {
                 throw new SimException("ERROR: Provide single argument - simulation file name.");
             }
 
-            Parser parser = new Parser();
+            Parser              parser = new Parser();
             parser.parseScenario(args[0]);
 
             Simulator simulator = new Simulator(parser.getFlyables(), parser.getSimCount());

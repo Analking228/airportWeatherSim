@@ -4,9 +4,9 @@ import java.io.*;
 
 public class Logger {
 
-    private static  BufferedWriter writer;
+    private static  BufferedWriter  writer;
 
-    Logger() {
+                                    Logger() {
         try {
             File file = new File("simulation.txt");
             file.delete();
@@ -17,7 +17,7 @@ public class Logger {
         }
     }
 
-    public static void addLine(String log) {
+    public static void              addLine(String log) {
         try {
             writer.write(log);
             writer.newLine();
@@ -27,7 +27,7 @@ public class Logger {
         }
     }
 
-    public static void closeFile() {
+    public static void              closeFile() {
         try {
             if (writer != null)
                 writer.close();

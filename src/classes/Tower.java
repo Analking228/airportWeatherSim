@@ -11,14 +11,14 @@ abstract public class                   Tower {
         observers = new ArrayList<>();
     }
 
-    public void                register(Flyable flyable) {
+    public void                         register(Flyable flyable) {
         if (!observers.contains(flyable)) {
             observers.add(flyable);
             System.out.println("Tower says: " + flyable.getNameId() + " registered to weather tower.");
         }
     }
 
-    public void                unregister(Flyable flyable) {
+    public void                         unregister(Flyable flyable) {
         if (observers.contains(flyable)) {
             observers.remove(flyable);
             System.out.println("Tower says: " + flyable.getNameId() + " unregistered from weather tower.");
