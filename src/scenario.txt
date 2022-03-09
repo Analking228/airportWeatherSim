@@ -1,10 +1,10 @@
 25
-Baloon B1 2 3 20
+ee6544c4745402bf582d71bd15fd81c5 B1 2 3 20
 Baloon B2 1 8 66
-JetPlane J1 23 44 32
+2e66f7e0ad65edb0632b6a3ff6af27ff J1 23 44 32
 Helicopter H1 654 33 20
 Helicopter H2 22 33 44
 Helicopter H3 98 68 99
-Baloon B3 102 22 34
-JetPlane J2 11 99 768
+ee6544c4745402bf582d71bd15fd81c5 B3 102 22 34
+2e66f7e0ad65edb0632b6a3ff6af27ff J2 11 99 768
 Helicopter H4 223 23 54

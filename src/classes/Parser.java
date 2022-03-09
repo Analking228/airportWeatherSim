@@ -6,6 +6,7 @@ import classes.aircrafts.Flyable;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class Parser {
@@ -57,7 +58,7 @@ public class Parser {
                 }
                 flyable.add(AircraftFactory.newAircraft(split[0], split[1], coords[0],
                         coords[1], coords[2]));
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | NoSuchAlgorithmException e) {
                 throw new SimException("ERROR: Invalid line #" + lnCount + " in a scenario file." +
                         "\nCoordinates must be 3 positive, space-separated integers.");
             }
